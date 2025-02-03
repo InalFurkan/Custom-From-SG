@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <style>
+        caption {
+                caption-side: top;
+                border: solid 1px #dee2e6; /* Tablo kenar çizgisi */
+                font-weight: bold;
+                padding: 10px;
+                background-color: #F8F9FA; /* Arka plan rengi */
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+    </style>
+    
+    <title>Startup Greece - Task I</title>
+</head>
+<body data-bs-theme="light">
+    <div class="container">
+        <div class="card mt-3">
+            <div class="card-header">
+                <input class="form-control form-control-lg" type="text" placeholder="Form Name" aria-label=".form-control-lg example" id="formTitle">
+            </div>
+            
+            
+            <div class="card-body">
+            
+                <div id="question-list">
+                   <!-- This container will be filled by user -->
+                </div>
+
+                <!-- Add Question Button -->
+                <div class="btn-group dropend" role="group">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                    Add Question
+                    </button>
+
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" onclick="textQuestionModal()">Text Question</a></li>
+                        <li><a class="dropdown-item" onclick="selectQuestionModal()">Select Question</a></li>
+                    </ul>
+                </div> 
+            </div>       
+        </div>
+
+       <!-- Done Button -->
+        <div class="btn btn-primary mt-3" onclick="saveForm()">Add Table</div>
+
+        <!-- Table Starts -->
+        <table class="table table-bordered mt-3" id="dataTable">
+            <caption id="table-caption"></caption>
+            <!-- Tablo başlıkları ve içerik dinamik olarak eklenecek -->
+        </table>
+        <!-- Table Ends -->
+
+    </div>
+
+      
+</div>
+
+<!-- Text Question Modal -->
+<div class="modal fade" id="textQuestionModal" tabindex="-1" aria-labelledby="textQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="textQuestionModalLabel">Add Text Question</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="textQuestionForm">
+                    <div class="mb-3">
+                        <label for="textQuestionTitle" class="form-label">Question Title:</label>
+                        <input type="text" id="textQuestionTitle" class="form-control" placeholder="Enter question title">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveTextQuestion()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Select Question Modal -->
+<div class="modal fade" id="selectQuestionModal" tabindex="-1" aria-labelledby="selectQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="selectQuestionModalLabel">Add Select Question</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="selectQuestionForm">
+                    <div class="mb-3">
+                        <label for="selectQuestionTitle" class="form-label">Question Title:</label>
+                        <input type="text" id="selectQuestionTitle" class="form-control" placeholder="Enter question title">
+                    </div>
+                    <div id="optionsContainer">
+                        <!-- This part will be filled -->
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="addOption()">Add Option</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="saveSelectQuestion()">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+           
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+<script src="script.js"></script>
+</body>
+</html>
